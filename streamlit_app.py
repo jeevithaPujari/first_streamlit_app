@@ -63,7 +63,7 @@ if streamlit.button('Get fruit load List'):
     my_data_rows=get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
 except URLError as e:
-         streamlit.error()
+    streamlit.error()
 
 # Allow the end user to add fruit to the list
 def insert_row_snowflake(new_fruit):
