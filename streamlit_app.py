@@ -39,6 +39,8 @@ try:
    else:
        back_from_function=get_fruityvice_data(fruit_choice)
        streamlit.dataframe(back_from_function)
+# don't run anything to past here will be troubleshoot
+streamlit.stop()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -66,7 +68,7 @@ def insert_row_snowflake(new_fruit):
          return "Thanks for adding" + new_fruit
 add_my_fruit = streamlit.text_input('what fruit would you like add?')
 if streamlit.button('Add a Fruit to the List'):
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]) 
-back_from_function=insert_row_snowflake(add_my_fruit)   
-streamlit.text(back_from_function)
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]) 
+    back_from_function=insert_row_snowflake(add_my_fruit)   
+    streamlit.text(back_from_function)
 
