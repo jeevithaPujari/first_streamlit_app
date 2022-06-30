@@ -47,10 +47,6 @@ my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 my_data_row = my_cur.fetchone()
 streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_row)
-
-# don't run anything to past here will be troubleshoot
-streamlit.stop()
-
 streamlit.header("The fruit load list contains:")
 #snowflake-related functions
 def get_fruit_load_list():
@@ -64,6 +60,8 @@ if streamlit.button('Get fruit load List'):
     streamlit.dataframe(my_data_rows)
 except URLError as e:
     streamlit.error()
+# don't run anything to past here will be troubleshoot
+streamlit.stop()
 
 # Allow the end user to add fruit to the list
 def insert_row_snowflake(new_fruit):
