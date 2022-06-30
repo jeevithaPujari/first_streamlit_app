@@ -47,8 +47,8 @@ try:
        streamlit.text("Hello from Snowflake:")
        streamlit.text(my_data_row)
 
-# don't run anything to past here will be troubleshoot
-streamlit.stop()
+         # don't run anything to past here will be troubleshoot
+       streamlit.stop()
 
 streamlit.header("The fruit load list contains:")
 #snowflake-related functions
