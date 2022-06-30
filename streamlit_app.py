@@ -45,8 +45,10 @@ my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 my_data_row = my_cur.fetchone()
 streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_row)
+
 # don't run anything to past here will be troubleshoot
 streamlit.stop()
+
 streamlit.header("The fruit load list contains:")
 #snowflake-related functions
 def get_fruit_load_list():
@@ -68,7 +70,7 @@ def insert_row_snowflake(new_fruit):
          return "Thanks for adding" + new_fruit
 add_my_fruit = streamlit.text_input('what fruit would you like add?')
 if streamlit.button('Add a Fruit to the List'):
-     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]) 
-     back_from_function=insert_row_snowflake(add_my_fruit)   
-     streamlit.text(back_from_function)
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]) 
+    back_from_function=insert_row_snowflake(add_my_fruit)   
+    streamlit.text(back_from_function)
 
